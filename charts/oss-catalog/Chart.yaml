@@ -32,3 +32,7 @@ dependencies:
     version: v0.1.1
     repository: oci://ghcr.io/italia/publiccode-crawler/charts
     alias: crawler
+  - name: postgresql
+    version: 14.3.3
+    repository: oci://docker.io/bitnamicharts
+    alias: db

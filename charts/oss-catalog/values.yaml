@@ -26,7 +26,7 @@ config:
     # -- Base64 encoded Paseto Key.
     pasetoKey:
     # -- Database connection string, e.g. "host= port=5432 dbname= user= password= sslmode=require".
-    databaseDSN:
+    databaseDSN: ""
   
 api:
   # -- (int) Max number of requests.
@@ -38,9 +38,33 @@ crawler:
     API_BASEURL:
     MAIN_PUBLISHER_ID:
     SKIP_VITALITY:
-  cronjob_schedule:
+  cronjob_schedule: "0 0 * * *"
     
   useExistingSecret: "oss-catalog-secrets"
+
+db:
+  global:
+    ## @param global.storageClass Global StorageClass for Persistent Volume(s)
+    ##
+    storageClass: ""
+    postgresql:
+      ## @param global.postgresql.auth.postgresPassword Password for the "postgres" admin user (overrides `auth.postgresPassword`)
+      ## @param global.postgresql.auth.username Name for a custom user to create (overrides `auth.username`)
+      ## @param global.postgresql.auth.password Password for the custom user to create (overrides `auth.password`)
+      ## @param global.postgresql.auth.database Name for a custom database to create (overrides `auth.database`)
+      ## @param global.postgresql.auth.existingSecret Name of existing secret to use for PostgreSQL credentials (overrides `auth.existingSecret`).
+      ## @param global.postgresql.auth.secretKeys.adminPasswordKey Name of key in existing secret to use for PostgreSQL credentials (overrides `auth.secretKeys.adminPasswordKey`). Only used when `global.postgresql.auth.existingSecret` is set.
+      ## @param global.postgresql.auth.secretKeys.userPasswordKey Name of key in existing secret to use for PostgreSQL credentials (overrides `auth.secretKeys.userPasswordKey`). Only used when `global.postgresql.auth.existingSecret` is set.
+      ##
+      auth:
+        postgresPassword: ""
+        username: ""
+        password: ""
+        database: "postgres"
+        existingSecret: ""
+        secretKeys:
+          adminPasswordKey: ""
+          userPasswordKey: ""
 
 # This is for the secretes for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
