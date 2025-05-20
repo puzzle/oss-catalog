@@ -14,18 +14,21 @@ image:
   tag: ""
   
 config:
-  API_BASEURL: http://api:3000/v1/
+  # -- API base URL (update according to the actual API service name)
+  API_BASEURL: http://oss-catalog-api/v1/
   # -- (string) Name of existing Kubernetes secret containing keys as listed under secrets.
   # If not provided, a secret will be generated using values from secrets.
   # Replace value of useExistingSecret under api and crawler also, if you chose to use another name than "oss-catalog-secrets"
   useExistingSecret:
     
   secrets:
+    # -- Base64 bearer token (secret key: "api-bearer-token")
     apiBearerToken:
+    # -- github token (secret key: "github-token")
     githubToken:
-    # -- Base64 encoded Paseto Key.
+    # -- Base64 encoded Paseto Key (secret key: "pasetoKey").
     pasetoKey:
-    # -- Database connection string, e.g. "host= port=5432 dbname= user= password= sslmode=require".
+    # -- Database connection string, e.g. "host= port=5432 dbname= user= password= sslmode=require" (secret key: "databaseDSN").
     databaseDSN: ""
   
 api:
