@@ -55,18 +55,17 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
-          
+
       - name: Install Helm
-        uses: azure/setup-helm@v4.2.0
+        uses: azure/setup-helm@v4.3.0
 
       - name: Package Helm Chart
         run: |
           helm dependency update ./charts/oss-catalog
           helm lint ./charts/oss-catalog
           helm package ./charts/oss-catalog
-          mv oss-catalog.*.tgz oss-catalog-helm.tgz
-
+          
       - name: Push Helm Chart
         run: | 
-          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io --username ${{ github.actor }} --password-stdtin
-          helm push oss-catalog-helm.tgz oci://ghcr.io/${{ github.actor }}
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io --username ${{ github.actor }} --password-stdin
+          helm push oss-catalog-chart-*.tgz oci://ghcr.io/retgal/
