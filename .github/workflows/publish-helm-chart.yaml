@@ -1,0 +1,44 @@
+name: Build and publish helm chart
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'k8s'
+    tags:
+      - "v*.*.*"
+    paths:
+      - 'charts/oss-catalog/**'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build_and_publish_helm_chart:
+    name: Push container image to ghcr
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4.3.0
+
+      - name: Package Helm Chart
+        run: |
+          helm dependency update ./charts/oss-catalog
+          helm lint ./charts/oss-catalog
+          helm package ./charts/oss-catalog
+          
+      - name: Push Helm Chart
+        run: | 
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io --username ${{ github.actor }} --password-stdin
+          helm push oss-catalog-chart-*.tgz oci://ghcr.io/retgal/
