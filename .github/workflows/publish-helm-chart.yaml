@@ -1,6 +1,7 @@
 name: Build and publish helm chart
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'charts/oss-catalog/**'
