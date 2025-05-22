@@ -8,7 +8,7 @@ on:
 
 jobs:
   build_and_publish_helm_chart:
-    name: Push container image to ghcr
+    name: Push helm chart to ghcr
     runs-on: ubuntu-latest
 
     permissions:
