@@ -19,30 +19,35 @@ config:
   # -- (string) Name of existing Kubernetes secret containing keys as listed under secrets.
   # If not provided, a secret will be generated using values from secrets.
   # Replace value of useExistingSecret under api and crawler also, if you chose to use another name than "oss-catalog-secrets"
-  useExistingSecret:
+  useExistingSecret: ""
     
   secrets:
     # -- Base64 bearer token (secret key: "api-bearer-token")
-    apiBearerToken:
+    apiBearerToken: ""
     # -- github token (secret key: "github-token")
-    githubToken:
+    githubToken: ""
     # -- Base64 encoded Paseto Key (secret key: "pasetoKey").
-    pasetoKey:
+    pasetoKey: ""
     # -- Database connection string, e.g. "host= port=5432 dbname= user= password= sslmode=require" (secret key: "databaseDSN").
     databaseDSN: ""
   
 api:
   # -- (int) Max number of requests.
   maxRequests:
+  # -- Secret name
   useExistingSecret: "oss-catalog-secrets"
   
 crawler:
   env:
-    API_BASEURL:
-    MAIN_PUBLISHER_ID:
-    SKIP_VITALITY:
+    # -- API base URL (update according to the actual API service name)
+    API_BASEURL: http://oss-catalog-api/v1/
+    # -- Main publisher ID (fe. "456123fe-e5ad-41fa-b894-8a021a8ed972")
+    MAIN_PUBLISHER_ID: ""
+    # -- Skip vitality
+    SKIP_VITALITY: true
   cronjob_schedule: "0 0 * * *"
-    
+  
+  # -- Secret name
   useExistingSecret: "oss-catalog-secrets"
 
 db:
