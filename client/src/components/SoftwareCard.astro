@@ -1,0 +1,16 @@
+---
+import GithubLogo from "./GithubLogo.astro"
+
+const { software } = Astro.props;
+
+---
+
+<div class="software-card">
+    <div class="card card--universal card--clickable">
+        <div class="card__content">
+            <div class="card__body">
+                <GithubLogo/><h3>{software.url}</h3>
+            </div>
+        </div>
+    </div>
+</div>
