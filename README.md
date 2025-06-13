@@ -74,6 +74,8 @@ Start API with database:
 
 #### Use API via Curl (optional)
 
+You need to have [go](https://go.dev/) installed. See https://go.dev/doc/install
+
 Generate PASETO token (valid for 24h):
 
 ```
