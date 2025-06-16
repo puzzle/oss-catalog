@@ -126,6 +126,7 @@ Run crawler:
 ```
 cd client
 nvm use
+npm install
 npm run dev
 ```
 
