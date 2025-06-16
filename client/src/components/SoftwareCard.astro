@@ -9,6 +9,11 @@ const content = yaml.load(software.publiccodeYml);
 const detailPageUrl = "/softwares/" + software.id;
 ---
 
+<style>
+  .card__content-icons {
+    margin: 0.75rem 1rem;
+  }
+</style>
 <div class="card card--default" has-icon="false">
   <div class="card__content">
     <div class="card__body">
@@ -36,10 +41,10 @@ const detailPageUrl = "/softwares/" + software.id;
         {content.description.en?.shortDescription}
       </p>
     </div>
-    <div class="card__content-icons">
+    <section class="card__content-icons">
       <div><GithubLogo /></div>
       <div class="ml-2"><a href="software.url">{software.url}</a></div>
-    </div>
+    </section>
     <div class="card__footer">
       <div class="card__footer__info"></div>
       <div class="card__footer__action">
