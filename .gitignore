@@ -1,8 +1,9 @@
 /.env
 node_modules/
 
-# intellij idea
+# editor settings
 .idea
+.vscode
 
-# asdf congfig
+# asdf config
 .tool-versions
