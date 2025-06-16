@@ -40,6 +40,7 @@ What you will do:
 - Add publisher(s) via catalog web application
 - Run crawler
 - Observe the collected softwares in the catalog web application
+- Run the new astro based client
 
 ### Preparation
 
@@ -119,6 +120,16 @@ Run crawler:
 ```
 ./start-crawler
 ```
+
+### OSS Catalog Client
+
+```
+cd client
+nvm use
+npm run dev
+```
+
+Then visit http://localhost:4321
 
 ## Work
 
