@@ -1,0 +1,22 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { id: "7c21e8b1-87d9-4457-8c23-5aaff7469030" } },
+    { params: { id: "06d1e317-62c6-490c-b731-af7a3b36dd19" } },
+  ];
+}
+
+import Layout from "../../layouts/Layout.astro";
+import SoftwareDetail from "../../components/SoftwareDetail.astro";
+
+const { id } = Astro.params;
+
+const response = await fetch(`http://localhost:3000/v1/software/${id}`);
+const software = await response.json();
+---
+
+<Layout>
+  <div class="container">
+    <SoftwareDetail software={software} />
+  </div>
+</Layout>

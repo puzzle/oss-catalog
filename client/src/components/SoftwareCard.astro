@@ -6,6 +6,7 @@ import LinkButton from "./LinkButton.astro";
 
 const { software } = Astro.props;
 const content = yaml.load(software.publiccodeYml);
+const detailPageUrl = "/softwares/" + software.id;
 ---
 
 <div class="card card--default" has-icon="false">
@@ -42,7 +43,7 @@ const content = yaml.load(software.publiccodeYml);
     <div class="card__footer">
       <div class="card__footer__info"></div>
       <div class="card__footer__action">
-        <LinkButton href="test" text="Read more" />
+        <LinkButton href={detailPageUrl} text="Read more" />
       </div>
     </div>
   </div>

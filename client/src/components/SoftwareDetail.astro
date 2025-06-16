@@ -1,0 +1,45 @@
+---
+import yaml from "js-yaml";
+
+const { software } = Astro.props;
+const content = yaml.load(software.publiccodeYml);
+---
+
+<div class="table-wrapper">
+  <table class="table table--default table--caption">
+    <caption>
+      Detail information for {content.name}
+    </caption>
+
+    <tbody>
+      <tr>
+        <th scope="row">Software name</th>
+        <td>{content.name}</td>
+      </tr>
+      <tr>
+        <th>Landing page</th>
+        <td>{content.landingURL}</td>
+        <tr>
+          <th scope="row">Short description</th>
+          <td>{content.description?.en?.shortDescription}</td>
+        </tr>
+        <tr>
+          <th scope="row">Documentation</th>
+          <td>{content.description?.en?.longDescription}</td>
+        </tr>
+        <tr>
+          <th scope="row">API Documentation</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">Software version</th>
+          <td>{content.softwareVersion}</td>
+        </tr>
+        <tr>
+          <th scope="row">License</th>
+          <td>{content.legal.license}</td>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
+</div>
