@@ -9,7 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.9.2"
+    "astro": "^5.9.2",
+    "date-fns": "^4.1.0",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "prettier": "3.5.3",
