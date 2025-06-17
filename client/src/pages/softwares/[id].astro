@@ -2,8 +2,14 @@
 import Layout from "../../layouts/Layout.astro";
 import SoftwareDetail from "../../components/SoftwareDetail.astro";
 
+const apiBaseUrl = import.meta.env.API_BASEURL || "http://localhost:3000/v1";
+console.log("apiBaseUrl", apiBaseUrl)
+
 export async function getStaticPaths() {
-  const response = await fetch("http://localhost:3000/v1/software");
+  const apiBaseUrl = import.meta.env.API_BASEURL || "http://localhost:3000/v1";
+
+  console.log("apiBaseUrl in getStaticPaths", apiBaseUrl)
+  const response = await fetch(`${apiBaseUrl}/software`);
   const data = await response.json();
   const softwares = data.data;
 
@@ -17,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { id } = Astro.params;
-const response = await fetch(`http://localhost:3000/v1/software/${id}`);
+const response = await fetch(`${apiBaseUrl}/software/${id}`);
 const software = await response.json();
 ---
 
