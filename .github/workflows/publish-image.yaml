@@ -23,7 +23,8 @@ jobs:
         uses: actions/checkout@v4
       - name: create paseto token
         run: |
-          PASETO_TOKEN="$(go run paseto/go/paseto-generate.go ${{ secrets.PASETO_KEY }})"
+          cd paseto/go
+          PASETO_TOKEN="$(go run paseto-generate.go ${{ secrets.PASETO_KEY }})"
       - name: call crawler
         run: |
           docker run -e API_BEARER_TOKEN=${{ env.PASETO_TOKEN }} -e API_BASEURL=${{ env.API_URL }} -e GITHUB_TOKEN=${{ secrets.PAT_TOKEN_GITHUB }} italia/publiccode-crawler:latest
