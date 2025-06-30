@@ -15,6 +15,17 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+  update_db:
+    name: Call crawler to update db
+    runs-on: ubuntu-latest
+    steps:
+      - name: create paseto token
+        run: |
+          PASETO_TOKEN="$(go run paseto/go/paseto-generate.go ${{ secrets.PASETO_KEY }})"
+      - name: call crawler
+        run: |
+          docker run -e API_BEARER_TOKEN=${{ env.PASETO_TOKEN }} -e API_BASEURL=${{ env.API_URL }} -e GITHUB_TOKEN=${{ secrets.PAT_TOKEN_GITHUB }} italia/publiccode-crawler:latest
+
   build_and_publish_image:
     name: Push container image to ghcr
     runs-on: ubuntu-latest
@@ -48,7 +59,7 @@ jobs:
         with:
           context: .
           build-args: |
-            API_BASEURL=https://oss-catalog-api.ocp.cloudscale.puzzle.ch/v1
+            API_BASEURL=${{ env.API_URL }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
