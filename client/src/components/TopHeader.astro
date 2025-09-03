@@ -1,10 +1,10 @@
 ---
 import Logo from "./Logo.astro";
 import LogoText from "./LogoText.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import {  useTranslations } from "../i18n/utils";
+import { ui } from "../i18n/ui";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations(Astro.currentLocale as keyof typeof ui);
 ---
 
 <div class="top-header">

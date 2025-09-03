@@ -1,14 +1,14 @@
 ---
 import TopHeader from "../components/TopHeader.astro";
 import TopBar from "../components/TobBar.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { useTranslations } from "../i18n/utils";
+import { ui } from "../i18n/ui";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations(Astro.currentLocale as keyof typeof ui);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={Astro.currentLocale}>
   <head>
     <link rel="stylesheet" href="/cd-bund-1.0.35.css" />
     <meta charset="UTF-8" />
