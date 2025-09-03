@@ -7,7 +7,7 @@ export const languages = {
 
 export const defaultLang = "en";
 
-export const ui = {
+export const locales = {
   en: {
     "header.logo.title": "Federal Chancellery FCh",
     "header.title": "Open Source Software Catalogue",

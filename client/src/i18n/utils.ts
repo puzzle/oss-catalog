@@ -1,9 +1,9 @@
-import { ui, defaultLang, languages } from './ui';
+import { locales, defaultLang, languages } from './locales.ts';
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: keyof typeof ui[typeof defaultLang]) {
-    return ui[lang][key];
+export function useTranslations(lang: keyof typeof locales) {
+  return function t(key: keyof typeof locales[typeof defaultLang]) {
+    return locales[lang][key];
   }
 }
 
