@@ -1,7 +1,9 @@
 import { locales, defaultLang, languages } from './locales.ts';
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-export function useTranslations(lang: keyof typeof locales) {
+export type Lang = keyof typeof locales;
+
+export function useTranslations(lang: Lang) {
   return function t(key: keyof typeof locales[typeof defaultLang]) {
     return locales[lang][key];
   }

@@ -1,10 +1,9 @@
 ---
 import TopHeader from "../components/TopHeader.astro";
 import TopBar from "../components/TobBar.astro";
-import { useTranslations } from "../i18n/utils";
-import { locales } from "../i18n/locales";
+import { type Lang, useTranslations } from "../i18n/utils";
 
-const t = useTranslations(Astro.currentLocale as keyof typeof locales);
+const t = useTranslations(Astro.currentLocale as Lang);
 ---
 
 <!doctype html>
