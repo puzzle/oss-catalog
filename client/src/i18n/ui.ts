@@ -19,4 +19,15 @@ export const ui = {
     "footer.legal": "Legal",
     "footer.privacy": "Privacy Policy",
   },
+  de: {
+    "header.logo.title": "Bundeskanzlei BK",
+    "header.title": "Open Source Software Katalog",
+    "index.title": "OSS Katalog",
+    "index.skip": "Zum Hauptinhalt springen",
+    "software.title": "Detailinformationen",
+    "software.back": "Zurück zur Übersicht",
+    "software.more": "Mehr anzeigen",
+    "footer.legal": "Rechtliches",
+    "footer.privacy": "Datenschutz",
+  },
 } as const;
