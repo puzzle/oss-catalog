@@ -4,11 +4,12 @@ import { getYear } from "date-fns";
 import GithubLogo from "./GithubLogo.astro";
 import LinkButton from "./LinkButton.astro";
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { useTranslations } from "../i18n/utils";
+import { ui } from "../i18n/ui";
 
 const { software } = Astro.props;
 const content = yaml.load(software.publiccodeYml);
-const lang = getLangFromUrl(Astro.url);
+const lang = Astro.currentLocale as keyof typeof ui;
 const t = useTranslations(lang);
 const detailPageUrl = getRelativeLocaleUrl(lang, "softwares/" + software.id);
 ---

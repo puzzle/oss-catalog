@@ -1,14 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SoftwareCard from "../../components/SoftwareCard.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import {  useTranslations } from "../../i18n/utils";
+import { ui } from "../../i18n/ui";
 
 const apiBaseUrl = import.meta.env.API_BASEURL  || "http://localhost:3000/v1";
 const response = await fetch(`${apiBaseUrl}/software?page[size]=10000`);
 const data = await response.json();
 const softwares = data.data;
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations(Astro.currentLocale as keyof typeof ui);
 ---
 
 <Layout>
