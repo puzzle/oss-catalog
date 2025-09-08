@@ -26,4 +26,22 @@ export const locales = {
     "footer.legal": "Rechtliches",
     "footer.privacy": "Datenschutz",
   },
+  it: {
+    "header.logo.title": "Cancelleria federale CaF",
+    "header.title": "Catalogo Open Source Software",
+    "index.title": "Catalogo OSS",
+    "index.skip": "Vai al contenuto principale",
+    "software.more": "Mostra altro",
+    "footer.legal": "Basi legali",
+    "footer.privacy": "Protezione dei dati",
+  },
+  fr: {
+    "header.logo.title": "Chancellerie fédérale ChF",
+    "header.title": "Catalogue Open Source Software",
+    "index.title": "Catalogue OSS",
+    "index.skip": "Aller au contenu principal",
+    "software.more": "Afficher plus",
+    "footer.legal": "Conditions d'utilisation",
+    "footer.privacy": "Protection des données",
+  },
 } as const;
