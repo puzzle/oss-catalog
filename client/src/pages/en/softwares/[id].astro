@@ -1,6 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import SoftwareDetail from "../../../components/SoftwareDetail.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { Lang } from "../../../i18n/utils";
 
 const apiBaseUrl = import.meta.env.API_BASEURL || "http://localhost:3000/v1";
 console.log("apiBaseUrl", apiBaseUrl)
@@ -25,6 +27,9 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 const response = await fetch(`${apiBaseUrl}/software/${id}`);
 const software = await response.json();
+
+const lang = Astro.currentLocale as Lang;
+const homeUrl = getRelativeLocaleUrl(lang);
 ---
 
 <style></style>
@@ -32,7 +37,7 @@ const software = await response.json();
 <Layout>
   <div class="container">
     <a
-      href="/"
+      href={homeUrl}
       type="false"
       class="btn btn--outline btn--sm btn--icon-left btn--back"
       aria-label="false"
