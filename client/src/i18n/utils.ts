@@ -5,7 +5,7 @@ export type Lang = keyof typeof locales;
 
 export function useTranslations(lang: Lang) {
   return function t(key: keyof typeof locales[typeof defaultLang]) {
-    return locales[lang][key];
+    return locales[lang] ? locales[lang][key] : locales[defaultLang][key];
   }
 }
 
