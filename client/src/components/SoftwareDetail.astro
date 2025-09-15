@@ -1,8 +1,12 @@
 ---
 import yaml from "js-yaml";
+import  { type Lang, resolveLanguage } from "../i18n/utils";
 
 const { software } = Astro.props;
 const content = yaml.load(software.publiccodeYml);
+const lang = Astro.currentLocale as Lang
+const availableLanguages = Object.keys(content.description);
+const description = content.description[resolveLanguage(lang, availableLanguages)];
 ---
 
 <div>
@@ -17,11 +21,11 @@ const content = yaml.load(software.publiccodeYml);
     </div>
   </div><div class="info-block border-t">
     <h2 class="info-block__title">Short description</h2><div>
-      <div>{content.description?.en?.shortDescription}</div>
+      <div>{description?.shortDescription}</div>
     </div>
   </div><div class="info-block border-t">
     <h2 class="info-block__title">Documentation</h2><div>
-      <div>{content.description?.en?.longDescription}</div>
+      <div>{description?.longDescription}</div>
     </div>
   </div><div class="info-block border-t">
     <h2 class="info-block__title">Software version</h2><div>
