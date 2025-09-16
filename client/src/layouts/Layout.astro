@@ -46,7 +46,9 @@ const t = useTranslations(Astro.currentLocale as Lang);
         <nav class="container" aria-label="Footer">
           <ul class="footer-navigation">
             <li>
-              <a href="javascript:void(0)" class="footer__link">{t("footer.legal")}</a>
+              <a href={t('footer.legal.link')} class="footer__link" target="_blank">
+                {t("footer.legal")}
+              </a>
             </li>
             <li>
               <a href="javascript:void(0)" class="footer__link">{t("footer.privacy")}</a>

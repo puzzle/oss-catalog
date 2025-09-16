@@ -17,7 +17,8 @@ export const locales = {
     "software.back": "Back to overview",
     "software.more": "Read more",
     "software.source": "View source code",
-    "footer.legal": "Legal",
+    "footer.legal": "Terms and conditions",
+    "footer.legal.link": "https://www.admin.ch/gov/en/start/terms-and-conditions.html",
     "footer.privacy": "Privacy Policy",
   },
   de: {
@@ -30,6 +31,7 @@ export const locales = {
     "software.more": "Mehr anzeigen",
     "software.source": "Quellcode anzeigen",
     "footer.legal": "Rechtliches",
+    "footer.legal.link": "https://www.admin.ch/gov/de/start/rechtliches.html",
     "footer.privacy": "Datenschutz",
   },
   it: {
@@ -42,6 +44,7 @@ export const locales = {
     "software.more": "Mostra altro",
     "software.source": "Afficher le code source",
     "footer.legal": "Basi legali",
+    "footer.legal.link": "https://www.admin.ch/gov/it/pagina-iniziale/basi-legali.html",
     "footer.privacy": "Protezione dei dati",
   },
   fr: {
@@ -54,6 +57,7 @@ export const locales = {
     "software.more": "Afficher plus",
     "software.source": "Visualizza codice sorgente",
     "footer.legal": "Conditions d'utilisation",
+    "footer.legal.link": "https://www.admin.ch/gov/fr/accueil/conditions-utilisation.html",
     "footer.privacy": "Protection des données",
   },
 } as const;
