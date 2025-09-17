@@ -23,6 +23,7 @@ export const locales = {
     "impressum.title": "Impressum",
     "impressum.content": "Publishing and content",
     "impressum.design": "Concept, design, usability and technical realisation",
+    "footer.tools": "OSS Tools",
   },
   de: {
     "header.logo.title": "Bundeskanzlei BK",
@@ -39,6 +40,7 @@ export const locales = {
     "impressum.title": "Impressum",
     "impressum.content": "Herausgeber und Redaktion",
     "impressum.design": "Konzept, Design, Usability und technische Umsetzung",
+    "footer.tools": "OSS Hilfsmittel",
   },
   it: {
     "header.logo.title": "Cancelleria federale CaF",
@@ -55,6 +57,7 @@ export const locales = {
     "impressum.title": "Impressum",
     "impressum.content": "Editore e redazione",
     "impressum.design": "Concetto, design, usability e realizzazione tecnica",
+    "footer.tools": "Guida OSS"
   },
   fr: {
     "header.logo.title": "Chancellerie fédérale ChF",
@@ -71,5 +74,6 @@ export const locales = {
     "impressum.title": "Impressum",
     "impressum.content": "Édition et rédaction",
     "impressum.design": "Conception, design, fonctionnalités et réalisation technique",
+    "footer.tools": "Outils d’aide OSS"
   },
 } as const;
