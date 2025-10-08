@@ -29,30 +29,35 @@ const t = useTranslations(Astro.currentLocale as Lang);
       </div>
     </div>
   </section>
-  <section>
-    Filter<br/>
-
-    <select id="orgs">
+  <section class="section">
+    <div class="container">
+    <div class="form__group__select">
+      <label for="organization-filter" class="text--base">
+        Filter
+      </label>
+    <select id="organization-filter">
       <option value="all">Alle</option>
       {orgEinheiten.map((org) => {
         return <option value={org.organization}>{org[lang] ?? org.de}</option>
       })}
     </select>
-    <script>
-      function handleOrgChange(event) {
-        const selectedOrg = event.target.value;
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => {
-          if (card.dataset.org === selectedOrg || selectedOrg === "all") {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      }
+      <script>
+        function handleOrgChange(event) {
+          const selectedOrg = event.target.value;
+          const cards = document.querySelectorAll('.card');
+          cards.forEach((card) => {
+            if (card.dataset.org === selectedOrg || selectedOrg === "all") {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
 
-      document.getElementById('orgs').addEventListener('change', handleOrgChange);
-    </script>
+        document.getElementById('organization-filter').addEventListener('change', handleOrgChange);
+      </script>
+    </div>
+    </div>
   </section>
   <section class="container section--default">
     <div class="grid grid--responsive-cols-3 gap--responsive">
