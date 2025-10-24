@@ -1,3 +1,8 @@
+# This Repository is archived!
+
+This repository contains the proof of concept of the oss-catalog developed for the swiss government.
+The new repository lives here: https://github.com/swiss/oss-catalog 
+
 # Open Source Software Catalog POC
 
 Proof-of-concept for an Open Source software catalog based on the [Publiccode](https://github.com/publiccodeyml) standard.
