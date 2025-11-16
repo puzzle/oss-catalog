@@ -11,7 +11,7 @@
   "dependencies": {
     "astro": "^5.13.5",
     "date-fns": "^4.1.0",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.1"
   },
   "devDependencies": {
     "prettier": "3.6.2",
