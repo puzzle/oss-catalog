@@ -36,6 +36,6 @@ dependencies:
     alias: crawler
   - name: postgresql
     condition: db.enabled
-    version: 14.3.3
+    version: 18.1.13
     repository: oci://docker.io/bitnamicharts
     alias: db
